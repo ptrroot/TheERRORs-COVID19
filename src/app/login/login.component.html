@@ -1,9 +1,8 @@
 <div class="login-page">
     <div class="form">
-      
-      <form class="login-form">
-        <input type="text" placeholder="ISS"/>
-        <input type="password" placeholder="Password"/>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="ISS" formControlName="username"/>
+        <input type="password" placeholder="Password" formControlName="password"/>
         <button>login</button>
         <p class="message">No estas registrado? <a href="#">Crear cuenta</a></p>
       </form>
