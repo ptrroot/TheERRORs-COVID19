@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../_services/login.component';
 
 @Component({
   selector: 'app-login',
@@ -10,27 +11,28 @@ export class LoginComponent implements OnInit {
 
       loginForm: FormGroup;
       submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-              username: ['', Validators.required],
-              password: ['', Validators.required]
-          });
-  }
+        constructor(private formBuilder: FormBuilder,
+                    private authService: AuthenticationService
+                  ) { }
+
+        ngOnInit(): void {
+          this.loginForm = this.formBuilder.group({
+                    username: ['', Validators.required],
+                    password: ['', Validators.required]
+                });
+        }
 
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
         this.submitted = true;
-        console.log(this.f.username.value);
-        console.log(this.f.password.value);
          // stop here if form is invalid
          //  if (this.loginForm.invalid) {
          //      return;
          //  }
-      //  this.authenticationService.login(this.f.username.value, this.f.password.value)
+            this.authService.login(this.f.username.value, this.f.password.value);
         //    .pipe(first())
           //  .subscribe(
             //    data => {
