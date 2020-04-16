@@ -23,20 +23,25 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-3">
-                        <input type="checkbox" name="op1" checked>
+                        <input type="checkbox" name="op1" [checked]="respuesta1">
                         <label for="op1">Estamos sanos</label>
                     </div>
                     <div class="col-xs-3">
-                        <input type="checkbox" name="op2">
+                        <input type="checkbox" name="op2" [checked]="respuesta2">
                         <label for="op2">Mi familia o yo presentamos sintomas</label>
                     </div>
                     <div class="col-xs-3">
-                        <input type="checkbox" name="op3">
+                        <input type="checkbox" name="op3" [checked]="respuesta3">
                         <label for="op3">Mi familia o yo tenemos COVID-19</label>
                     </div>
                 </div>
                 <div class="row">
-                    <button>Finalizar</button>
+                    <div class="col-xs-6">
+                        <button (click)="finalizeSucced()">Finalizar con Exito</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button (click)="finalizeErrors()">Finalizar con Error</button>
+                    </div>
                 </div>
             </div>
         </div>

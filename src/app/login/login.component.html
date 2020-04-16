@@ -1,10 +1,19 @@
 <div class="login-page">
     <div class="form">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="ISS" formControlName="username"/>
-        <input type="password" placeholder="Password" formControlName="password"/>
-        <button>login</button>
-        <p class="message">No estas registrado? <a href="#">Crear cuenta</a></p>
-      </form>
+        <!--        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">-->
+        <div>
+            <!--<input type="text" placeholder="ISS" formControlName="username" />-->
+            <!--<input type="password" placeholder="Password" formControlName="password" />-->
+            <input type="text" placeholder="ISS" />
+            <input type="password" placeholder="Password" />
+            <button (click)="nextError()" style="background-color: red;"> LOGGIN WITH ERRORS</button>
+            <hr>
+            <button (click)="newLogginSucces()">NEW LOGGIN SUCCED</button>
+            <hr>
+            <button (click)="editLogginSucces()">LOGGIN FOR EDITING</button>
+            <hr>
+            <p class="message">No estas registrado? <a href="#">Crear cuenta</a></p>
+            <!--</form>-->
+        </div>
     </div>
-  </div>
+</div>

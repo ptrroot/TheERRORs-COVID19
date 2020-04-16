@@ -1,2 +1,5 @@
-<app-login></app-login>
-<!--<app-pregunta4></app-pregunta4>-->
+<app-login *ngIf="page.numero == 1"></app-login>
+<app-pregunta1 *ngIf="page.numero == 2"></app-pregunta1>
+<app-pregunta2 *ngIf="page.numero == 3"></app-pregunta2>
+<app-pregunta3 *ngIf="page.numero == 4"></app-pregunta3>
+<app-pregunta4 *ngIf="page.numero == 5"></app-pregunta4>
