@@ -8,10 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PreguntasComponent } from './preguntas/preguntas.component';
-import { Pregunta1Component } from './Preguntas/pregunta1/pregunta1.component';
-import { Pregunta2Component } from './Preguntas/pregunta2/pregunta2.component';
-import { Pregunta3Component } from './Preguntas/pregunta3/pregunta3.component';
-import { Pregunta4Component } from './Preguntas/pregunta4/pregunta4.component';
+import { Pregunta1Component } from './preguntas/pregunta1/pregunta1.component';
+import { Pregunta2Component } from './preguntas/pregunta2/pregunta2.component';
+import { Pregunta3Component } from './preguntas/pregunta3/pregunta3.component';
+import { Pregunta4Component } from './preguntas/pregunta4/pregunta4.component';
 
 @NgModule({
   declarations: [
