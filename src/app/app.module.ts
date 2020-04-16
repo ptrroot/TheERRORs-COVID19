@@ -14,6 +14,7 @@ import { Pregunta3Component } from './preguntas/pregunta3/pregunta3.component';
 import { Pregunta4Component } from './preguntas/pregunta4/pregunta4.component';
 import { PaginationService } from './pagination.service';
 import { RespuestasService } from './respuestas.service';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RespuestasService } from './respuestas.service';
     Pregunta1Component,
     Pregunta2Component,
     Pregunta3Component,
-    Pregunta4Component
+    Pregunta4Component,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

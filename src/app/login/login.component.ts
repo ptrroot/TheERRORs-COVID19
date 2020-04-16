@@ -51,6 +51,10 @@ export class LoginComponent implements OnInit {
                       , respuesta6:false};
                   }
 
+                  registration(){
+                    this.paginationService.moveToPage(6);
+                  }
+
                   nextError(){
                     alert("Usuario o contraseña incorrectos");
                   }
