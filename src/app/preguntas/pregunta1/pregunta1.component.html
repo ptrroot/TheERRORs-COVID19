@@ -1,1 +1,20 @@
-<p>pregunta1 works!</p>
+<div class="form">
+<h2>IS</h2>
+<p>
+	<strong>
+		Como se sienten tu familia y tú
+	</strong>
+</p>
+<hr/>
+
+<form #formPregunta1="ngForm" (ngSubmit)="OnSubmit()">
+<p>
+<input type="text" name= "respuesta" style= "height: 200px"#respuesta="ngModel" [(ngModel)]="pregunta1.respuesta" required>
+<span *ngIf="respuesta.touched && !respuesta.valid">
+	Debes contestar la pregunta
+</span>
+</p>
+
+<input type="submit" value="Guardar">
+</form>
+</div>
