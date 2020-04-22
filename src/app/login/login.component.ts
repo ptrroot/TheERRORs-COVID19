@@ -26,6 +26,12 @@ export class LoginComponent implements OnInit {
                     ,private respuestasService:RespuestasService
                   ) { }
 
+                  ngOnInit(): void {
+                    this.loginForm = this.formBuilder.group({
+                      userIS: ['', Validators.required],
+                      userPassword: ['', Validators.required]
+                  });
+                  }
                 
                   newLogginSucces(){
                     this.paginationService.moveToPage(2);
@@ -55,36 +61,30 @@ export class LoginComponent implements OnInit {
                     this.paginationService.moveToPage(6);
                   }
 
-                  nextError(){
-                    alert("Usuario o contraseña incorrectos");
+                  
+                 loginLauncher(isValue:string, passValue:string){
+                    this.authService.login(isValue, passValue).subscribe(result=>{
+                      if(result=="OK"){
+                        this.newLogginSucces();
+                      }else{
+                        alert('Usuario o contraseña incorrectos, intente nuevamente');
+                      }
+
+                    });
                   }
 
-        ngOnInit(): void {
-          this.loginForm = this.formBuilder.group({
-                    username: ['', Validators.required],
-                    password: ['', Validators.required]
-                });
-        }
 
-  // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+                  get f() { return this.loginForm.controls; }
 
-  onSubmit() {
-        this.submitted = true;
-         // stop here if form is invalid
-         //  if (this.loginForm.invalid) {
-         //      return;
-         //  }
-            this.authService.login(this.f.username.value, this.f.password.value);
-        //    .pipe(first())
-          //  .subscribe(
-            //    data => {
-              //      this.router.navigate([this.returnUrl]);
-                //},
-                //error => {
-                  //  this.error = error;
-                  //  this.loading = false;
-                //});
-    }
+
+        onSubmit() {
+          this.submitted = true;
+  
+          if (this.f.userIS.status=="INVALID"||this.f.userPassword.status =="INVALID") {
+              return;
+          }
+          this.loginLauncher(this.f.userIS.value, this.f.userPassword.value);
+      }
+
 
 }
