@@ -15,6 +15,7 @@ export class AuthenticationService {
             this.http.post<any>('http://localhost:9090/login', { is,password}).subscribe(data => {
                 observer.next(data.msg);
             }, (error)=>{
+                alert("Ocurrió un problema al realizar la autenticación");
                 observer.error(error);
             });
         });
