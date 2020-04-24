@@ -1,10 +1,26 @@
 <div class="login-page">
     <div class="form">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="ISS" formControlName="username"/>
-        <input type="password" placeholder="Password" formControlName="password"/>
-        <button>login</button>
-        <p class="message">No estas registrado? <a href="#">Crear cuenta</a></p>
-      </form>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <label>IS</label>
+            <input type="text" formControlName="userIS" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userIS.errors}" />
+            <div *ngIf="submitted && f.userIS.errors" class="invalid-feedback">
+                <div *ngIf="f.userIS.errors.required">Ingrese el IS</div>
+            </div>
+            <hr>
+            <label>PASSWORD</label>
+            <input type="text" formControlName="userPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }" />
+            <div *ngIf="submitted && f.userPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.userPassword.errors.required">Ingrese la contraseña</div>
+            </div>
+            <hr>
+            <button style="background-color: red;"> LOGGIN WITH ERRORS</button>
+
+        </form>
+        <hr>
+        <button (click)="newLogginSucces()">NEW LOGGIN SUCCED</button>
+        <hr>
+        <button (click)="editLogginSucces()">LOGGIN FOR EDITING</button>
+        <hr>
+        <p class="message">No estas registrado? <a (click)="registration()">Crear cuenta</a></p>
     </div>
-  </div>
+</div>
