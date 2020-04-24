@@ -1,0 +1,36 @@
+<div class ="report-component">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a class="button">
+            <button type="button" class="btn btn-success" (click)="showHealthy()">PERSONAL SIN SINTOMAS</button>
+        </a>
+        <a class="button">
+            <button type="button" class="btn btn-warning" (click)="showWarning()">PERSONAL CON SINTOMAS</button>
+        </a>
+        <a class="button">
+            <button type="button" class="btn btn-danger" (click)="showInfected()">PERSONAL CON COVID</button>
+        </a>
+        
+    </div>
+    
+   
+    <div class="table">
+        
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">IS</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Respuesta</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let person of personArray">
+                <th>{{person.is}}</th>
+                <td>{{person.fullName}}</td>
+                <td>{{person.respuesta4}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

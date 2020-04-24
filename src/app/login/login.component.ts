@@ -61,6 +61,10 @@ export class LoginComponent implements OnInit {
                     this.paginationService.moveToPage(6);
                   }
 
+                  redirectReports(){
+                    this.paginationService.moveToPage(7);
+                  }
+
                   
                  loginLauncher(isValue:string, passValue:string){
                     this.authService.login(isValue, passValue).subscribe(result=>{

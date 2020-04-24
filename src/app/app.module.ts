@@ -15,6 +15,7 @@ import { Pregunta4Component } from './preguntas/pregunta4/pregunta4.component';
 import { PaginationService } from './pagination.service';
 import { RespuestasService } from './respuestas.service';
 import { RegistroComponent } from './registro/registro.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RegistroComponent } from './registro/registro.component';
     Pregunta2Component,
     Pregunta3Component,
     Pregunta4Component,
-    RegistroComponent
+    RegistroComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
