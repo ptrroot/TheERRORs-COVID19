@@ -1,0 +1,47 @@
+<div class="question-page">
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>El COVID-19 se caracteriza por síntomas leves, como, dolor de garganta, tos y fiebre. La enfermedad puede ser más grave en algunas personas y provocar neumonía o dificultades respiratorias. Más raramente puede ser mortal. Las personas
+                    de edad avanzada y las personas con otras afecciones médicas (como asma, diabetes o cardiopatías) pueden ser más vulnerables y enfermar de gravedad. Los signos y síntomas pueden ser:
+                </p>
+                <ul>
+                    <li>dolor de garganta</li>
+                    <li>tos</li>
+                    <li>fiebre</li>
+                    <li>dificultad para respirar (en casos graves)</li>
+                </ul>
+
+            </div>
+            <div class="col-xs-6">
+                <form [formGroup]="preguntaForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <p>{{IS}}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{preguntaActual}}</p>
+                    </div>
+                    <div class="row" *ngIf="respuestaEscrita">
+                        <textarea formControlName="respuesta" id="respuesta" rows="6" cols="50">{{respuestaActual}}</textarea>
+                        <span *ngIf="!preguntaForm.get('respuesta').valid && preguntaForm.get('respuesta').touched" class="help-block">Ingrese una respuesta valida</span>
+                    </div>
+                    <div *ngIf="respuestaRadio">
+                        <div class="radio" *ngFor="let opcion of opciones">
+                            <label>
+                            <input
+                            type="radio"
+                            [value]="opcion"
+                            formControlName="opcion">{{ opcion }}
+                        </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button (click)="onSubmit()" type="submit">{{siguientePaso}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

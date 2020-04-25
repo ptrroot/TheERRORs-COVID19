@@ -7,11 +7,13 @@ import { LoginComponent } from './login/login.component';
 //Incorporamos formsModule and ReactiveFormsModule because in news implements is a god option used this part of angular. to @BestPractices...
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PreguntaComponent } from './pregunta/pregunta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    PreguntaComponent
   ],
   imports: [
     BrowserModule,

@@ -36,14 +36,14 @@ export class LoginComponent implements OnInit {
   }
 
   registration() {
-    this.paginationService.moveToPage(6);
+  //  this.paginationService.moveToPage(6);
   }
 
 
   loginLauncher(isValue: string, passValue: string) {
     this.authService.login(isValue, passValue).subscribe(result => {
       if (result == "OK") {
-        this.newLogginSucces();
+    //    this.newLogginSucces();
       } else {
         alert('Usuario o contraseña incorrectos, intente nuevamente');
       }
