@@ -17,13 +17,13 @@
             <div class="col-xs-6">
                 <form [formGroup]="preguntaForm" (ngSubmit)="onSubmit()">
                     <div class="row">
-                        <p>{{IS}}</p>
+                        <p>IS: {{IS}}</p>
                     </div>
                     <div class="row">
                         <p>{{preguntaActual}}</p>
                     </div>
                     <div class="row" *ngIf="respuestaEscrita">
-                        <textarea formControlName="respuesta" id="respuesta" rows="6" cols="50">{{respuestaActual}}</textarea>
+                        <textarea formControlName="respuesta" id="respuesta" rows="6" cols="50"></textarea>
                         <span *ngIf="!preguntaForm.get('respuesta').valid && preguntaForm.get('respuesta').touched" class="help-block">Ingrese una respuesta valida</span>
                     </div>
                     <div *ngIf="respuestaRadio">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button (click)="onSubmit()" type="submit">{{siguientePaso}}</button>
+                        <button [disabled]="!preguntaForm.valid" type="submit">{{siguientePaso}}</button>
                     </div>
                 </form>
             </div>

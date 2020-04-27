@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../_services/login.component';
+import { Router } from '@angular/router';
 //import { PaginationService } from '../pagination.service';
 //import { RespuestasService } from '../respuestas.service';
 
@@ -13,19 +14,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted = false;
-  respuestas: {
-    respuesta1: string
-    , respuesta2: string
-    , respuesta3: string
-    , respuesta4: boolean
-    , respuesta5: boolean
-    , respuesta6: boolean
-  };
 
   constructor(private formBuilder: FormBuilder,
     private authService: AuthenticationService
-    //                    ,private paginationService:PaginationService
-    //                   ,private respuestasService:RespuestasService
+    ,private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,15 +27,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  registration() {
-  //  this.paginationService.moveToPage(6);
-  }
-
 
   loginLauncher(isValue: string, passValue: string) {
     this.authService.login(isValue, passValue).subscribe(result => {
       if (result == "OK") {
-    //    this.newLogginSucces();
+        this.router.navigate(['pregunta',this.loginForm.get('userIS').value]);
       } else {
         alert('Usuario o contraseña incorrectos, intente nuevamente');
       }

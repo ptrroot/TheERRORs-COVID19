@@ -8,11 +8,23 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient) {}
 
+    loggedIn = false;
+
+    isAuthenticated(){
+        const promise = new Promise(
+            (resolve,reject) =>{
+                resolve(this.loggedIn);
+            }
+        )
+        return promise;
+    }
+
      login(is: string, password: string){
           const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Access-Control-Allow-Origin':'*',
           'Access-Control-Allow-Credentials':'true','Access-Control-Allow-Headers':true}
         return new Observable((observer)=>{
             this.http.post<any>('http://localhost:9090/login', { is,password}).subscribe(data => {
+                this.loggedIn = true;
                 observer.next(data.msg);
             }, (error)=>{
                 alert("Ocurrió un problema al realizar la autenticación");

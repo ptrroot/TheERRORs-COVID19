@@ -13,9 +13,10 @@
                 <div *ngIf="f.userPassword.errors.required">Ingrese la contraseña</div>
             </div>
             <hr>
-            <button style="background-color: red;"> LOGGIN WITH ERRORS</button>
+            <button style="background-color: red;"> LOGGIN</button>
 
         </form>
-        <p class="message">No estas registrado? <a (click)="registration()">Crear cuenta</a></p>
+        <p class="message">No estas registrado?
+            <a [routerLink]="['registro']">Crear cuenta</a></p>
     </div>
 </div>
