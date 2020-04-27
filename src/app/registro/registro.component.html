@@ -1,18 +1,38 @@
-<div class="login-page">
+<div class="registro-page">
     <div class="form">
-        <div>
-            <input type="text" placeholder="IS" />
-            <input type="text" placeholder="NOMBRE" />
-            <input type="text" placeholder="APELLIDO PATERNO" />
-            <input type="text" placeholder="APELLIDO MATERNO" />
-            <input type="text" placeholder="CORREO" />
-            <input type="text" placeholder="TELEFONO" />
-            <input type="password" placeholder="Password" />
-            <input type="password" placeholder="Confirmar Password" />
-            <button (click)="ErrorRegistration()" style="background-color: red;"> ERROR REGISTRATION</button>
-            <hr>
-            <button (click)="SuccesRegistration()">SUCCES REGISTRATION</button>
-            <hr>
-        </div>
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+            <div class="row">
+                <input #IS="ngModel" required ngModel name="IS" id="IS" type="text" placeholder="IS" />
+                <span class="help-block" *ngIf="!IS.valid && IS.touched">Please enter a valid IS!</span>
+            </div>
+            <div class="row">
+                <input #NOMBRE="ngModel" required ngModel name="NOMBRE" id="NOMBRE" type="text" placeholder="NOMBRE" />
+                <span class="help-block" *ngIf="!NOMBRE.valid && NOMBRE.touched">Please enter a valid NOMBRE!</span>
+            </div>
+            <div class="row">
+                <input #APELLIDOP="ngModel" required ngModel name="APELLIDOP" id="APELLIDOP" type="text" placeholder="APELLIDO PATERNO" />
+                <span class="help-block" *ngIf="!APELLIDOP.valid && APELLIDOP.touched">Please enter a valid APELLIDO PATERNO!</span>
+            </div>
+            <div class="row">
+                <input #APELLIDOM="ngModel" required ngModel name="APELLIDOM" id="APELLIDOM" type="text" placeholder="APELLIDO MATERNO" />
+                <span class="help-block" *ngIf="!APELLIDOM.valid && APELLIDOM.touched">Please enter a valid APELLIDO MATERNO!</span>
+            </div>
+            <div class="row">
+                <input #CORREO="ngModel" required email ngModel name="CORREO" id="CORREO" type="email" placeholder="CORREO" />
+                <span class="help-block" *ngIf="!CORREO.valid && CORREO.touched">Please enter a valid CORREO!</span>
+            </div>
+            <div class="row">
+                <input #TEL="ngModel" required ngModel name="TEL" id="TEL" type="text" placeholder="TELEFONO" />
+                <span class="help-block" *ngIf="!TEL.valid && TEL.touched">Please enter a valid TELEFONO!</span>
+            </div>
+            <div class="row">
+                <input #PASS="ngModel" required ngModel name="PASS" id="PASS" type="password" placeholder="PASS" />
+                <span class="help-block" *ngIf="!PASS.valid && PASS.touched">Please enter a valid PASSWORD!</span>
+            </div>
+            <p class="message">Ya estas registrado?
+                <a [routerLink]="['']">Login</a></p>
+            <button [disabled]="!f.valid" type="submit">REGISTRATION</button>
+        </form>
+        <hr>
     </div>
 </div>

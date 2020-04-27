@@ -8,12 +8,12 @@
             </div>
             <hr>
             <label>PASSWORD</label>
-            <input type="text" formControlName="userPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }" />
+            <input type="password" formControlName="userPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }" />
             <div *ngIf="submitted && f.userPassword.errors" class="invalid-feedback">
                 <div *ngIf="f.userPassword.errors.required">Ingrese la contraseña</div>
             </div>
             <hr>
-            <button style="background-color: red;"> LOGGIN</button>
+            <button type="submit"> LOGGIN</button>
 
         </form>
         <p class="message">No estas registrado?

@@ -33,11 +33,11 @@ export class RespuestaService{
         )
         .subscribe(
           responseData => {
-            alert('Registro exitoso');
+            alert('Registro exitoso' + responseData);
           },
           error => {
             this.error.next(error.message);
-            alert('Error al insertar los datos');
+            alert('Error al insertar los datos' + error.message);
           }
         );
     }
