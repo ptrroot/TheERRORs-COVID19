@@ -1,0 +1,69 @@
+<div class="add-page">
+	<label>Registro Nuevo Usuario</label>
+	<div class="form">
+        <form #formRegistrer="ngForm" class="add-form" (ngSubmit)="onAdd(formRegistrer)">
+        	<div class="alert alert-danger" role="alert" *ngIf="isError">Algo salio mal!</div>
+        	<div class="form-group">
+				<label>IS</label>
+				<input type="text" name="iss" #iss="ngModel" class="form-control" [(ngModel)]="userRecord.is" required minlength="3" maxlength="5">
+			</div>
+				<div class="alert alert-danger" role="alert" *ngIf="iss.touched && !iss.valid">
+					<div *ngIf="iss.errors.required">Is requerido</div>
+					<div *ngIf="iss.errors.minlength">Minino 3 caracteres</div>
+					<div *ngIf="iss.errors.maxlength">Maximo 5 caracteres</div>
+				</div>
+			<div class="form-group">
+				<label>Nombre:</label>
+				<input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="userRecord.name" required>
+			</div>
+				<div class="alert alert-danger" role="alert" *ngIf="name.touched && !name.valid">
+					<div *ngIf="name.errors.required">Nombre es requerido</div>
+				</div>
+			<div class="form-group">
+				<label>Apellido Paterno:</label>
+				<input type="text" name="lastname" #lastname="ngModel" class="form-control" [(ngModel)]="userRecord.firstLastName" required>
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="lastname.touched && !lastname.valid">
+					<div *ngIf="lastname.errors.required">Apellido Paterno es requerido</div>
+				</div>
+			<div class="form-group">
+				<label>Apellido Materno:</label>
+				<input type="text" name="lastname2" #lastname2="ngModel" class="form-control" [(ngModel)]="userRecord.secondLastName" required>
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="lastname2.touched && !lastname2.valid">
+					<div *ngIf="lastname2.errors.required">Apellido Materno es requerido</div>
+				</div>
+			<div class="form-group">
+				<label>Correo Electronico:</label>
+				<input type="email" name="email" #email="ngModel" class="form-control" [(ngModel)]="userRecord.email" required>		
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="email.touched && !email.valid">
+					<div *ngIf="email.errors.required">Correo Electronico es requerido</div>
+				</div>
+			<div class="form-group">
+				<label>Telefono:</label>
+				<input type="text" name="phone" #phone="ngModel" class="form-control" [(ngModel)]="userRecord.phone" required>
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="phone.touched && !phone.valid">
+					<div *ngIf="phone.errors.required">Telefono es requerido</div>
+				</div>
+			<div class="form-group">
+				<label>Contraseña:</label>
+				<input type="password" name="password" #pass="ngModel" class="form-control" [(ngModel)]="userRecord.password" required minlength="5">
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="pass.touched && !pass.valid">
+					<div *ngIf="pass.errors.required">Password es requerido</div>
+					<div *ngIf="pass.errors.minlength">Minino 5 caracteres</div>
+			</div>
+			<div class="form-group">
+				<label>Confirmar Contraseña:</label>
+				<input type="password" name="confpassword" #pass2="ngModel" class="form-control" [(ngModel)]="password" required  minlength="5" validateEqual="pass">
+			</div>
+			<div class="alert alert-danger" role="alert" *ngIf="pass2.touched && !pass2.valid">
+					<div *ngIf="pass2.errors.required">Confirmar Contraseña></div>
+					<div *ngIf="pass2.errors.validateEqual"> Las contraseñas no coinciden</div>
+				</div>
+			<button type="submit" class="btn btn-sucess">Registrar</button>
+		</form>
+    </div>
+</div>

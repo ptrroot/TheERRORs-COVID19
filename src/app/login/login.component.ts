@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../_services/login.component';
 import { Router } from '@angular/router';
-//import { PaginationService } from '../pagination.service';
-//import { RespuestasService } from '../respuestas.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
 
   loginForm: FormGroup;
   submitted = false;
@@ -20,11 +19,12 @@ export class LoginComponent implements OnInit {
     ,private router: Router
   ) { }
 
+s
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       userIS: ['', Validators.required],
       userPassword: ['', Validators.required]
-    });
+  });
   }
 
 
@@ -35,22 +35,18 @@ export class LoginComponent implements OnInit {
       } else {
         alert('Usuario o contraseña incorrectos, intente nuevamente');
       }
-
     });
   }
 
-
   get f() { return this.loginForm.controls; }
-
 
   onSubmit() {
     this.submitted = true;
 
-    if (this.f.userIS.status == "INVALID" || this.f.userPassword.status == "INVALID") {
-      return;
+    if (this.f.userIS.status=="INVALID"||this.f.userPassword.status =="INVALID") {
+        return;
     }
     this.loginLauncher(this.f.userIS.value, this.f.userPassword.value);
   }
-
 
 }
